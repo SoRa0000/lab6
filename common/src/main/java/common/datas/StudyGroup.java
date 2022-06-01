@@ -95,7 +95,7 @@ public class StudyGroup implements Comparable<StudyGroup> {
 
     @Override
     public int compareTo(StudyGroup studyGroup) {
-        return studentsCount.compareTo(studyGroup.getStudentsCount());
+        return name.compareTo(studyGroup.getName());
     }
 
     @Override

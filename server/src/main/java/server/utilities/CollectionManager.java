@@ -316,11 +316,12 @@ public class CollectionManager {
      */
 
     public void printCollection(Map<String, StudyGroup> collection){
+        Map<String, StudyGroup> sortedMap = sortValues(collection);
         AsciiTable at = new AsciiTable();
         at.addRule();
         at.addRow("Key","id","name","Coord-X", "Coord-Y", "creatDate","St", "T-St","formEdu","SEM","A-Name","passId","CNTR","LOC-X","LOC-Y","LOC-Z","LOC-Name");
         at.addRule();
-        collection.forEach((key,entry)-> {
+        sortedMap.forEach((key,entry)-> {
             at.addRow(
                     String.valueOf(key),
                     String.valueOf(entry.getId()),
@@ -348,4 +349,25 @@ public class CollectionManager {
         String render = at.render();
         ResponseOutputer.append(render);
     }
+    public static <K, V extends Comparable<V>> Map<K, V> sortValues(final Map<K, V> m)
+    {
+        Comparator<K> com = new Comparator<K>()
+        {
+            public int compare(K k1, K k2)
+            {
+                int compare = m.get(k1).compareTo(m.get(k2));
+                if(compare == 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return compare;
+                }
+            }
+        };Map<K, V> sortedByValues = new TreeMap<K, V>(com);
+        sortedByValues.putAll(m);
+        return sortedByValues;
+    }
+
 }
