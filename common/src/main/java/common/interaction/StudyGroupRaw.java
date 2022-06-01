@@ -5,6 +5,7 @@ import common.datas.*;
 import java.io.Serializable;
 
 public class StudyGroupRaw implements Serializable {
+    private static final long serialVersionUID = 3L;
     private final String name;
     private final Coordinates coordinates;
     private final Long studentsCount;

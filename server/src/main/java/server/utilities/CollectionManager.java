@@ -1,6 +1,7 @@
 package server.utilities;
 
 import common.interaction.StudyGroupRaw;
+import server.AppServer;
 import server.commands.ICommand;
 import common.datas.FormOfEducation;
 import common.datas.StudyGroup;
@@ -185,7 +186,7 @@ public class CollectionManager {
      */
     public void executeScript(String arg){
         ResponseOutputer.append("");
-        System.out.println("Чтение команды из скрипта...");
+        AppServer.logger.info("Чтение команды из скрипта...");
     }
 
     /**

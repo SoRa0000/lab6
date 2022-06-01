@@ -3,6 +3,7 @@ package common.interaction;
 import java.io.Serializable;
 
 public class Response implements Serializable{
+    private static final long serialVersionUID = 2L;
     private final ResponseCode responseCode;
     private final String responseBody;
    public Response(ResponseCode responseCode, String responseBody){

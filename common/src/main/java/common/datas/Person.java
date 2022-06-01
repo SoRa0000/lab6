@@ -8,6 +8,7 @@ import java.util.Objects;
  * Admin of the group
  */
 public class Person implements Serializable {
+    private static final long serialVersionUID = 4L;
     private final String name;
     private final String passportID;
     private final Country country;

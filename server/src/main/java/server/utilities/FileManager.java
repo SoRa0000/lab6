@@ -7,6 +7,7 @@ import com.opencsv.CSVWriter;
 
 import common.exceptions.CannotReadFileException;
 import common.exceptions.CannotWriteException;
+import server.AppServer;
 import server.customCollection.CustomTreeMap;
 import common.datas.*;
 
@@ -29,10 +30,10 @@ public class FileManager {
             if(!file.exists()) throw new FileNotFoundException();
             if(!file.canRead()) throw new CannotReadFileException();
         }catch (FileNotFoundException err){
-            System.out.println("Файл не найден");
+            AppServer.logger.info("Файл не найден");
             System.exit(0);
         }catch (CannotReadFileException err){
-            System.out.println("Отказано в доступе для чтения из файла!");
+            AppServer.logger.info("Отказано в доступе для чтения из файла!");
             System.exit(0);
         }
 
@@ -72,13 +73,13 @@ public class FileManager {
                     );
                     studyGroupCollection.put(data[0], studyGroup);
                 }catch(IndexOutOfBoundsException | IllegalArgumentException err){
-                    System.out.println("Ошибка в " + row + " строке!");
+                    AppServer.logger.info("Ошибка в " + row + " строке!");
                 }
             }
-            System.out.println("Данные добавлены в коллекцию!");
+            AppServer.logger.info("Данные добавлены в коллекцию!");
             reader.close();
         } catch (IOException err){
-            System.out.println("Ошибка во время чтения из файла");
+            AppServer.logger.info("Ошибка во время чтения из файла");
 
         }
 
@@ -104,9 +105,9 @@ public class FileManager {
 
             });
             writer.close();
-            System.out.println("Успешно сохранено в файл!");
+            AppServer.logger.info("Успешно сохранено в файл!");
         }catch (IOException | CannotWriteException err){
-            System.out.println("Отказано в доступе для записи в файл!");
+            AppServer.logger.info("Отказано в доступе для записи в файл!");
         }
     }
     public Long getLastId(){

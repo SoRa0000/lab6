@@ -7,6 +7,7 @@ import java.util.Objects;
  * Location of the group admin
  */
 public class Location implements Serializable {
+    private static final long serialVersionUID = 6L;
     private final Float x;
     private final Long y;
     private final int z;

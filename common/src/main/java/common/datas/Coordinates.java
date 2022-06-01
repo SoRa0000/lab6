@@ -3,7 +3,7 @@ package common.datas;
 import java.io.Serializable;
 
 public class Coordinates implements Serializable {
-
+    private static final long serialVersionUID = 5L;
     private final int x;
     private final long y;
 

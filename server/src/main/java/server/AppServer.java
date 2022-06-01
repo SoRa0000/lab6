@@ -1,5 +1,6 @@
 package server;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import common.exceptions.CannotReadFileException;
 import server.commands.*;
 import server.utilities.CollectionManager;
@@ -12,7 +13,8 @@ import java.io.IOException;
 public class AppServer {
     public static final int PORT = 4004;
     public static final int CONNECTION_TIMEOUT = 60 * 1000;
-
+    public static final Logger logger
+            = LoggerFactory.getLogger(AppServer.class);
     public static void main(String[] args) throws IOException, CannotReadFileException {
         if(args.length == 1){
             final String PATH_FILE = args[0];

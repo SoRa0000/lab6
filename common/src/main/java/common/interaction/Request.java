@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class Request implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String commandName[];
     private Serializable commandObjectArgument;
 

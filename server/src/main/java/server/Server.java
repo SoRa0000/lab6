@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.ConnectException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
@@ -46,9 +45,9 @@ public class Server {
                             } catch (IOException e) { e.printStackTrace(); }
                         }
                         else if(userCommand[0].equals("save"))  collectionManager.save();
-                        else System.out.println("Нет таких команд!\nДля завершения сервера - exit_server\nДля сохранение коллекцию в файл - save");
+                        else AppServer.logger.info("Нет таких команд!\nДля завершения сервера - exit_server\nДля сохранение коллекцию в файл - save");
                     }catch (NoSuchElementException err){
-                        System.out.println("Непредвиденная ошибка!");
+                        AppServer.logger.info("Непредвиденная ошибка!");
                         System.exit(0);
                     }
 
@@ -63,43 +62,43 @@ public class Server {
                 } catch (ConnectionErrorException | SocketTimeoutException exception) {
                     break;
                 } catch (IOException err){
-                    System.out.println("Произошла ошибка при попытке завершить соединение с клиентом!");
+                    AppServer.logger.info("Произошла ошибка при попытке завершить соединение с клиентом!");
                 }
             }
             stop();
         } catch(OpeningServerSocketException err){
-            System.out.println("Сервер не может быть запущен!");
+            AppServer.logger.info("Сервер не может быть запущен!");
         }
     }
 
     public void openServerSocket() throws IOException {
         try{
-            System.out.println("Запуск сервера...");
+            AppServer.logger.info("Запуск сервера...");
             serverSocket = new ServerSocket(port);
             serverSocket.setSoTimeout(soTimeout);
-            System.out.println("Сервер успешно запущен.");
+            AppServer.logger.info("Сервер успешно запущен.");
         } catch(IllegalArgumentException err){
-            System.out.println("Порт '" + port + "' находится за пределами возможных значений!");
+            AppServer.logger.info("Порт '" + port + "' находится за пределами возможных значений!");
             throw new OpeningServerSocketException();
         }
         catch (IOException err){
-            System.out.println("Произошла ошибка при попытке использовать порт '" + port + "'!");
+            AppServer.logger.info("Произошла ошибка при попытке использовать порт '" + port + "'!");
             throw new OpeningServerSocketException();
         }
     }
 
     public Socket connectToClient() throws IOException {
         try{
-            System.out.println("Прослушивание порта '" + port + "'...");
+            AppServer.logger.info("Прослушивание порта '" + port + "'...");
             Socket clientSocket = serverSocket.accept();
-            System.out.println("Соединение с клиентом успешно установлено.");
+            AppServer.logger.info("Соединение с клиентом успешно установлено.");
             return clientSocket;
         } catch(SocketTimeoutException err){
-            System.out.println("Превышено время ожидания подключения!");
+            AppServer.logger.info("Превышено время ожидания подключения!");
             throw new SocketTimeoutException();
         }
         catch (IOException err) {
-            System.out.println("Произошла ошибка при соединении с клиентом!");
+            AppServer.logger.info("Произошла ошибка при соединении с клиентом!");
             throw new ConnectionErrorException();
         }
     }
@@ -112,36 +111,36 @@ public class Server {
             do{
                 userRequest = (Request) clientReader.readObject();
                 responseToUser = requestHandler.handle(userRequest);
-                System.out.println("Запрос '" + Arrays.toString(userRequest.getCommandName()) + "'обработан.");
+                AppServer.logger.info("Запрос '" + Arrays.toString(userRequest.getCommandName()) + "'обработан.");
                 clientWriter.writeObject(responseToUser);
                 clientWriter.flush();
             }while(responseToUser.getResponseCode() != ResponseCode.SERVER_EXIT);
             return false;
         } catch (ClassNotFoundException err) {
-            System.out.println("Произошла ошибка при чтении полученных данных!");
+            AppServer.logger.info("Произошла ошибка при чтении полученных данных!");
         } catch(InvalidClassException err){
-            System.out.println("Произошла ошибка при отправке данных на клиент!");
+            AppServer.logger.info("Произошла ошибка при отправке данных на клиент!");
         } catch (IOException err){
             if(userRequest == null){
-                System.out.println("Непредвиденный разрыв соединения с клиентом!");
+                AppServer.logger.info("Непредвиденный разрыв соединения с клиентом!");
             }
             else{
-                System.out.println("Клиент успешно отключен от сервера!");
+                AppServer.logger.info("Клиент успешно отключен от сервера!");
             }
         }
         return true;
     }
     public void stop() throws IOException {
         try{
-            System.out.println("Завершение работы сервера...");
+            AppServer.logger.info("Завершение работы сервера...");
             if(serverSocket == null) throw new ClosingSocketException();
             serverSocket.close();
-            System.out.println("Работа сервера успешно завершена.");
+            AppServer.logger.info("Работа сервера успешно завершена.");
             System.exit(0);
         }catch (ClosingSocketException err){
-            System.out.println("Невозможно завершить работу еще не запущенного сервера!");
+            AppServer.logger.info("Невозможно завершить работу еще не запущенного сервера!");
         } catch (IOException err){
-            System.out.println("Произошла ошибка при завершении работы сервера!");
+            AppServer.logger.info("Произошла ошибка при завершении работы сервера!");
         }
     }
 
