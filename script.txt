@@ -1,0 +1,19 @@
+insert 1234
+Math
+432553
+232414
+38
+3
+DISTANCE_EDUCATION
+THIRD
+Sora
+MN00323036
+GERMANY
+23
+-3
+344
+ITMO
+show
+filter_contains_name Math
+history
+execute_script script.txt

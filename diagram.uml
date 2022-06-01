@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>commands.AbstractCommand</OriginalElement>
+  <nodes>
+    <node x="4985.708220312458" y="322.5">datas.FormOfEducation</node>
+    <node x="3176.3374255952376" y="344.0">exceptions.NotInDeclaredLimitsException</node>
+    <node x="3820.0494190999007" y="1705.0">utilities.CollectionManager</node>
+    <node x="5286.433220312459" y="311.5">datas.Semester</node>
+    <node x="2139.416666666666" y="3382.0">commands.RemoveLowerCommand</node>
+    <node x="4919.494141002639" y="796.0">utilities.QueryEnumsChecker</node>
+    <node x="2617.4277199445723" y="3800.0">run.App</node>
+    <node x="1582.4166666666663" y="3382.0">commands.RemoveCommand</node>
+    <node x="4575.223538939909" y="3382.0">commands.SaveCommand</node>
+    <node x="2200.098586309524" y="829.5">commands.ICommand</node>
+    <node x="564.4166666666661" y="3382.0">commands.ReplaceIfGreaterCommand</node>
+    <node x="3886.2235389399098" y="3382.0">commands.FilterLessThanTransferredStudentsCommand</node>
+    <node x="888.4166666666661" y="3382.0">commands.FilterGreaterThanFormOfEducationCommand</node>
+    <node x="1310.416666666666" y="3382.0">commands.ShowCommand</node>
+    <node x="6218.446884264062" y="1305.0">utilities.FileManager</node>
+    <node x="3305.2235389399098" y="3382.0">commands.ExecuteScriptCommand</node>
+    <node x="3972.369141002639" y="1362.5">exceptions.ScriptRecursionException</node>
+    <node x="2905.3374255952376" y="379.0">exceptions.IncorrectInputScriptException</node>
+    <node x="3614.2235389399098" y="3382.0">commands.InfoCommand</node>
+    <node x="4847.223538939909" y="3382.0">commands.ExitCommand</node>
+    <node x="1920.8485863095236" y="1283.5">utilities.CommandManager</node>
+    <node x="2620.9277199445723" y="3651.0">utilities.Console</node>
+    <node x="2690.2235389399098" y="3382.0">commands.FilterContainsNameCommand</node>
+    <node x="16.41666666666606" y="3382.0">commands.InsertCommand</node>
+    <node x="4850.710877433234" y="1239.0">utilities.QueryManager</node>
+    <node x="5254.824886979125" y="11.5">datas.Country</node>
+    <node x="3033.2235389399098" y="3382.0">commands.ClearCommand</node>
+    <node x="5946.833220312458" y="311.0">datas.Coordinates</node>
+    <node x="4303.223538939909" y="3382.0">commands.HelpCommand</node>
+    <node x="5273.5983076693055" y="708.0">datas.StudyGroup</node>
+    <node x="3362.783854166666" y="751.5">utilities.QueryChecker</node>
+    <node x="3447.3374255952376" y="344.0">exceptions.IncorrectPassportID</node>
+    <node x="2418.6543898809523" y="1969.5">commands.AbstractCommand</node>
+    <node x="5661.833220312458" y="289.0">datas.Person</node>
+    <node x="1863.4166666666663" y="3382.0">commands.HistoryCommand</node>
+    <node x="5922.895720312458" y="0.0">datas.Location</node>
+    <node x="1211.6980878705044" y="1980.5">exceptions.IncorrectCommandInputException</node>
+    <node x="288.41666666666606" y="3382.0">commands.UpdateCommand</node>
+    <node x="3661.3374255952376" y="344.0">exceptions.EmptyStringException</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="commands.InfoCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="3740.2235389399098" y="2602.0" />
+      <point x="2586.8262648809523" y="2602.0" />
+      <point x="53.671875" y="49.0" />
+    </edge>
+    <edge source="commands.SaveCommand" target="utilities.CollectionManager">
+      <point x="36.0" y="-49.5" />
+      <point x="4737.223538939909" y="2442.0" />
+      <point x="4172.94647792343" y="2442.0" />
+      <point x="142.39705882352973" y="313.5" />
+    </edge>
+    <edge source="utilities.QueryChecker" target="utilities.CollectionManager">
+      <point x="-81.33333333333348" y="127.0" />
+      <point x="3403.450520833333" y="1219.0" />
+      <point x="3323.4936755952376" y="1219.0" />
+      <point x="3323.4936755952376" y="1595.0" />
+      <point x="3964.7681690999007" y="1595.0" />
+      <point x="-65.78125" y="-313.5" />
+    </edge>
+    <edge source="utilities.QueryManager" target="utilities.QueryChecker">
+      <point x="-112.0" y="-138.0" />
+      <point x="4874.710877433234" y="1109.0" />
+      <point x="3484.783854166666" y="1109.0" />
+      <point x="0.0" y="127.0" />
+    </edge>
+    <edge source="commands.ShowCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="1436.416666666666" y="3052.0" />
+      <point x="2479.4825148809523" y="3052.0" />
+      <point x="-53.671875" y="49.0" />
+    </edge>
+    <edge source="commands.ClearCommand" target="utilities.CommandManager">
+      <point x="36.0" y="-49.5" />
+      <point x="3195.2235389399098" y="3122.0" />
+      <point x="3302.2076826693055" y="3122.0" />
+      <point x="3302.2076826693055" y="1675.0" />
+      <point x="2070.348586309524" y="1675.0" />
+      <point x="19.5" y="93.5" />
+    </edge>
+    <edge source="utilities.CollectionManager" target="exceptions.IncorrectInputScriptException">
+      <point x="-92.09375" y="-313.5" />
+      <point x="3938.4556690999007" y="1605.0" />
+      <point x="3025.3374255952376" y="1605.0" />
+      <point x="3025.3374255952376" y="678.0" />
+      <point x="3015.1499255952376" y="678.0" />
+      <point x="-15.6875" y="14.5" />
+    </edge>
+    <edge source="commands.RemoveCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="1712.9166666666663" y="3072.0" />
+      <point x="2493.7950148809523" y="3072.0" />
+      <point x="-39.359375" y="49.0" />
+    </edge>
+    <edge source="commands.ReplaceIfGreaterCommand" target="utilities.CommandManager">
+      <point x="-130.28571428571468" y="-49.5" />
+      <point x="586.1309523809514" y="2882.0" />
+      <point x="502.587596799076" y="2882.0" />
+      <point x="502.587596799076" y="1635.0" />
+      <point x="1979.3485863095236" y="1635.0" />
+      <point x="-71.5" y="93.5" />
+    </edge>
+    <edge source="utilities.QueryChecker" target="exceptions.NotInDeclaredLimitsException">
+      <point x="-69.71428571428578" y="-127.0" />
+      <point x="3415.0695684523807" y="678.0" />
+      <point x="3239.0874255952376" y="678.0" />
+      <point x="-62.75" y="49.5" />
+    </edge>
+    <edge source="datas.StudyGroup" target="datas.FormOfEducation">
+      <point x="-251.125" y="-170.5" />
+      <point x="5309.4733076693055" y="598.0" />
+      <point x="5155.958220312458" y="598.0" />
+      <point x="56.75" y="71.0" />
+    </edge>
+    <edge source="utilities.QueryManager" target="utilities.QueryEnumsChecker">
+      <point x="-32.0" y="-138.0" />
+      <point x="4954.710877433234" y="1099.0" />
+      <point x="4999.494141002639" y="1099.0" />
+      <point x="-80.0" y="82.5" />
+    </edge>
+    <edge source="commands.ExecuteScriptCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-123.85714285714283" y="-49.5" />
+      <point x="3325.866396082767" y="2672.0" />
+      <point x="1376.9793378705044" y="2672.0" />
+      <point x="36.28125" y="38.0" />
+    </edge>
+    <edge source="utilities.CollectionManager" target="exceptions.ScriptRecursionException">
+      <point x="-39.46875" y="-313.5" />
+      <point x="3991.0806690999007" y="1595.0" />
+      <point x="4026.369141002639" y="1595.0" />
+      <point x="-54.0" y="14.5" />
+    </edge>
+    <edge source="utilities.QueryManager" target="datas.Country">
+      <point x="-64.0" y="-138.0" />
+      <point x="4922.710877433234" y="1079.0" />
+      <point x="4865.166553645792" y="1079.0" />
+      <point x="4865.166553645792" y="259.0" />
+      <point x="5272.424886979125" y="259.0" />
+      <point x="-70.39999999999964" y="93.0" />
+    </edge>
+    <edge source="utilities.QueryManager" target="datas.Location">
+      <point x="128.0" y="-138.0" />
+      <point x="5114.710877433234" y="1219.0" />
+      <point x="6140.333220312458" y="1219.0" />
+      <point x="6140.333220312458" y="259.0" />
+      <point x="6052.395720312458" y="259.0" />
+      <point x="18.5" y="104.5" />
+    </edge>
+    <edge source="commands.HistoryCommand" target="commands.AbstractCommand">
+      <point x="36.57142857142844" y="-49.5" />
+      <point x="2027.9880952380947" y="3102.0" />
+      <point x="2515.2637648809523" y="3102.0" />
+      <point x="-17.890625" y="49.0" />
+    </edge>
+    <edge source="commands.ExitCommand" target="commands.AbstractCommand">
+      <point x="-36.0" y="-49.5" />
+      <point x="4937.223538939909" y="2402.0" />
+      <point x="2636.9200148809523" y="2402.0" />
+      <point x="103.765625" y="49.0" />
+    </edge>
+    <edge source="commands.RemoveLowerCommand" target="utilities.CollectionManager">
+      <point x="83.71428571428578" y="-49.5" />
+      <point x="2369.6309523809523" y="3272.0" />
+      <point x="3999.593536746959" y="3272.0" />
+      <point x="-30.955882352941444" y="313.5" />
+    </edge>
+    <edge source="utilities.CollectionManager" target="commands.ICommand">
+      <point x="-144.71875" y="-313.5" />
+      <point x="3885.8306690999007" y="1625.0" />
+      <point x="3003.3374255952376" y="1625.0" />
+      <point x="3003.3374255952376" y="1209.0" />
+      <point x="2342.723586309524" y="1209.0" />
+      <point x="61.125" y="49.0" />
+    </edge>
+    <edge source="commands.ReplaceIfGreaterCommand" target="utilities.CollectionManager">
+      <point x="86.85714285714312" y="-49.5" />
+      <point x="803.2738095238092" y="3172.0" />
+      <point x="3875.7700073351944" y="3172.0" />
+      <point x="-154.77941176470586" y="313.5" />
+    </edge>
+    <edge source="commands.SaveCommand" target="utilities.CommandManager">
+      <point x="108.0" y="-49.5" />
+      <point x="4809.223538939909" y="3362.0" />
+      <point x="4985.010303645792" y="3362.0" />
+      <point x="4985.010303645792" y="1565.0" />
+      <point x="2161.348586309524" y="1565.0" />
+      <point x="110.5" y="93.5" />
+    </edge>
+    <edge source="utilities.QueryManager" target="datas.Semester">
+      <point x="0.0" y="-138.0" />
+      <point x="4986.710877433234" y="1119.0" />
+      <point x="5260.994141002639" y="1119.0" />
+      <point x="5260.994141002639" y="688.0" />
+      <point x="5340.733220312459" y="688.0" />
+      <point x="-36.19999999999982" y="82.0" />
+    </edge>
+    <edge source="commands.ClearCommand" target="utilities.CollectionManager">
+      <point x="72.0" y="-49.5" />
+      <point x="3231.2235389399098" y="3312.0" />
+      <point x="4049.1229485116655" y="3312.0" />
+      <point x="18.573529411764866" y="313.5" />
+    </edge>
+    <edge source="commands.SaveCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-108.0" y="-49.5" />
+      <point x="4593.223538939909" y="2482.0" />
+      <point x="1441.4793378705044" y="2482.0" />
+      <point x="100.78125" y="38.0" />
+    </edge>
+    <edge source="utilities.CollectionManager" target="datas.FormOfEducation">
+      <point x="13.15625" y="-313.5" />
+      <point x="4043.7056690999007" y="1615.0" />
+      <point x="4287.945033859782" y="1615.0" />
+      <point x="4287.945033859782" y="678.0" />
+      <point x="5004.624886979125" y="678.0" />
+      <point x="-94.58333333333303" y="71.0" />
+    </edge>
+    <edge source="utilities.Console" target="utilities.QueryManager">
+      <point x="56.208333333333485" y="-49.5" />
+      <point x="2748.1360532779054" y="3611.0" />
+      <point x="5795.077505483788" y="3611.0" />
+      <point x="5795.077505483788" y="1535.0" />
+      <point x="5095.510877433234" y="1535.0" />
+      <point x="108.80000000000018" y="138.0" />
+    </edge>
+    <edge source="utilities.CollectionManager" target="datas.StudyGroup">
+      <point x="39.46875" y="-313.5" />
+      <point x="4070.0181690999007" y="1625.0" />
+      <point x="4829.210877433234" y="1625.0" />
+      <point x="4829.210877433234" y="1129.0" />
+      <point x="5321.431641002639" y="1129.0" />
+      <point x="-239.16666666666697" y="170.5" />
+    </edge>
+    <edge source="commands.FilterLessThanTransferredStudentsCommand" target="commands.AbstractCommand">
+      <point x="-4.547473508864641E-13" y="-49.5" />
+      <point x="4084.7235389399093" y="2552.0" />
+      <point x="2601.1387648809523" y="2552.0" />
+      <point x="67.984375" y="49.0" />
+    </edge>
+    <edge source="utilities.QueryManager" target="datas.StudyGroup">
+      <point x="16.0" y="-138.0" />
+      <point x="5002.710877433234" y="1149.0" />
+      <point x="5512.7649743359725" y="1149.0" />
+      <point x="-47.83333333333303" y="170.5" />
+    </edge>
+    <edge source="utilities.Console" target="commands.RemoveCommand">
+      <point x="-26.625" y="-49.5" />
+      <point x="2665.3027199445723" y="3561.0" />
+      <point x="1712.9166666666663" y="3561.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.FilterGreaterThanFormOfEducationCommand" target="utilities.CollectionManager">
+      <point x="114.85714285714289" y="-49.5" />
+      <point x="1204.2738095238092" y="3192.0" />
+      <point x="3900.5347132175475" y="3192.0" />
+      <point x="-130.01470588235316" y="313.5" />
+    </edge>
+    <edge source="utilities.FileManager" target="datas.Semester">
+      <point x="-59.09090909090901" y="-72.0" />
+      <point x="6321.855975173153" y="1179.0" />
+      <point x="6405.310520627698" y="1179.0" />
+      <point x="6405.310520627698" y="558.0" />
+      <point x="5449.333220312458" y="558.0" />
+      <point x="72.39999999999964" y="82.0" />
+    </edge>
+    <edge source="commands.InsertCommand" target="commands.AbstractCommand">
+      <point x="56.0" y="-49.5" />
+      <point x="198.41666666666606" y="2982.0" />
+      <point x="2429.3887648809523" y="2982.0" />
+      <point x="-103.765625" y="49.0" />
+    </edge>
+    <edge source="utilities.Console" target="utilities.CollectionManager">
+      <point x="44.375" y="-49.5" />
+      <point x="2736.3027199445723" y="3591.0" />
+      <point x="5115.640205606575" y="3591.0" />
+      <point x="5115.640205606575" y="2352.0" />
+      <point x="4234.858242629312" y="2352.0" />
+      <point x="204.3088235294117" y="313.5" />
+    </edge>
+    <edge source="utilities.Console" target="commands.UpdateCommand">
+      <point x="-50.291666666666515" y="-49.5" />
+      <point x="2641.6360532779054" y="3601.0" />
+      <point x="416.41666666666606" y="3601.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="utilities.Console" target="utilities.FileManager">
+      <point x="68.04166666666652" y="-49.5" />
+      <point x="2759.9693866112384" y="3631.0" />
+      <point x="6427.488550930728" y="3631.0" />
+      <point x="6427.488550930728" y="1685.0" />
+      <point x="6502.821884264062" y="1685.0" />
+      <point x="121.875" y="72.0" />
+    </edge>
+    <edge source="utilities.Console" target="commands.SaveCommand">
+      <point x="26.625" y="-49.5" />
+      <point x="2718.5527199445723" y="3561.0" />
+      <point x="4701.223538939909" y="3561.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.HelpCommand" target="commands.AbstractCommand">
+      <point x="-35.99999999999977" y="-49.5" />
+      <point x="4393.22353893991" y="2522.0" />
+      <point x="2608.2950148809523" y="2522.0" />
+      <point x="75.140625" y="49.0" />
+    </edge>
+    <edge source="commands.ExitCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-108.0" y="-49.5" />
+      <point x="4865.223538939909" y="2422.0" />
+      <point x="1457.6043378705044" y="2422.0" />
+      <point x="116.90625" y="38.0" />
+    </edge>
+    <edge source="utilities.QueryChecker" target="exceptions.IncorrectPassportID">
+      <point x="0.0" y="-127.0" />
+      <point x="3484.783854166666" y="688.0" />
+      <point x="3495.8374255952376" y="688.0" />
+      <point x="-48.5" y="49.5" />
+    </edge>
+    <edge source="commands.ReplaceIfGreaterCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="716.4166666666661" y="3012.0" />
+      <point x="2450.8575148809523" y="3012.0" />
+      <point x="-82.296875" y="49.0" />
+    </edge>
+    <edge source="commands.ClearCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-108.0" y="-49.5" />
+      <point x="3051.2235389399098" y="2712.0" />
+      <point x="1360.8543378705044" y="2712.0" />
+      <point x="20.15625" y="38.0" />
+    </edge>
+    <edge source="commands.ShowCommand" target="utilities.CommandManager">
+      <point x="-108.0" y="-49.5" />
+      <point x="1328.416666666666" y="2872.0" />
+      <point x="884.7304539419329" y="2872.0" />
+      <point x="884.7304539419329" y="1655.0" />
+      <point x="2005.3485863095236" y="1655.0" />
+      <point x="-45.5" y="93.5" />
+    </edge>
+    <edge source="commands.HelpCommand" target="utilities.CommandManager">
+      <point x="108.00000000000023" y="-49.5" />
+      <point x="4537.22353893991" y="3352.0" />
+      <point x="4843.510303645792" y="3352.0" />
+      <point x="4843.510303645792" y="1575.0" />
+      <point x="2148.348586309524" y="1575.0" />
+      <point x="97.5" y="93.5" />
+    </edge>
+    <edge source="utilities.Console" target="commands.ReplaceIfGreaterCommand">
+      <point x="-44.375" y="-49.5" />
+      <point x="2647.5527199445723" y="3591.0" />
+      <point x="716.4166666666661" y="3591.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.FilterContainsNameCommand" target="utilities.CommandManager">
+      <point x="46.14285714285688" y="-49.5" />
+      <point x="2897.8663960827666" y="3112.0" />
+      <point x="3247.97777195502" y="3112.0" />
+      <point x="3247.97777195502" y="1685.0" />
+      <point x="2057.348586309524" y="1685.0" />
+      <point x="6.5" y="93.5" />
+    </edge>
+    <edge source="utilities.FileManager" target="datas.StudyGroup">
+      <point x="-118.18181818181802" y="-72.0" />
+      <point x="6262.765066082244" y="1099.0" />
+      <point x="5704.0983076693055" y="1099.0" />
+      <point x="143.5" y="170.5" />
+    </edge>
+    <edge source="commands.InsertCommand" target="utilities.CommandManager">
+      <point x="-56.0" y="-49.5" />
+      <point x="86.41666666666606" y="3362.0" />
+      <point x="69.41666666666606" y="3362.0" />
+      <point x="69.41666666666606" y="1615.0" />
+      <point x="1953.3485863095236" y="1615.0" />
+      <point x="-97.5" y="93.5" />
+    </edge>
+    <edge source="commands.ExitCommand" target="utilities.CommandManager">
+      <point x="108.0" y="-49.5" />
+      <point x="5081.223538939909" y="3362.0" />
+      <point x="5126.510303645792" y="3362.0" />
+      <point x="5126.510303645792" y="1555.0" />
+      <point x="2174.348586309524" y="1555.0" />
+      <point x="123.5" y="93.5" />
+    </edge>
+    <edge source="commands.InsertCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-28.0" y="-49.5" />
+      <point x="114.41666666666606" y="2892.0" />
+      <point x="1215.7293378705044" y="2892.0" />
+      <point x="-124.96875" y="38.0" />
+    </edge>
+    <edge source="utilities.Console" target="commands.InfoCommand">
+      <point x="8.875" y="-49.5" />
+      <point x="2700.8027199445723" y="3531.0" />
+      <point x="3740.2235389399098" y="3531.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.UpdateCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-73.14285714285688" y="-49.5" />
+      <point x="343.2738095238092" y="2912.0" />
+      <point x="1231.8543378705044" y="2912.0" />
+      <point x="-108.84375" y="38.0" />
+    </edge>
+    <edge source="commands.FilterContainsNameCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="2851.7235389399098" y="2722.0" />
+      <point x="2543.8887648809523" y="2722.0" />
+      <point x="10.734375" y="49.0" />
+    </edge>
+    <edge source="utilities.Console" target="commands.FilterContainsNameCommand">
+      <point x="-8.875" y="-49.5" />
+      <point x="2683.0527199445723" y="3501.0" />
+      <point x="2851.7235389399098" y="3501.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.HelpCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-107.99999999999977" y="-49.5" />
+      <point x="4321.22353893991" y="2542.0" />
+      <point x="1425.3543378705044" y="2542.0" />
+      <point x="84.65625" y="38.0" />
+    </edge>
+    <edge source="utilities.QueryEnumsChecker" target="datas.FormOfEducation">
+      <point x="64.0" y="-82.5" />
+      <point x="5143.494141002639" y="618.0" />
+      <point x="5080.291553645791" y="618.0" />
+      <point x="-18.91666666666697" y="71.0" />
+    </edge>
+    <edge source="commands.HistoryCommand" target="utilities.CollectionManager">
+      <point x="73.14285714285734" y="-49.5" />
+      <point x="2064.559523809524" y="3252.0" />
+      <point x="3974.828830864606" y="3252.0" />
+      <point x="-55.720588235294144" y="313.5" />
+    </edge>
+    <edge source="commands.RemoveCommand" target="utilities.CommandManager">
+      <point x="-111.85714285714266" y="-49.5" />
+      <point x="1601.0595238095236" y="2842.0" />
+      <point x="1026.5518825133613" y="2842.0" />
+      <point x="1026.5518825133613" y="1665.0" />
+      <point x="2018.3485863095236" y="1665.0" />
+      <point x="-32.5" y="93.5" />
+    </edge>
+    <edge source="utilities.Console" target="commands.HelpCommand">
+      <point x="20.708333333333485" y="-49.5" />
+      <point x="2712.6360532779054" y="3551.0" />
+      <point x="4429.223538939909" y="3551.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="utilities.Console" target="commands.ExitCommand">
+      <point x="32.541666666666515" y="-49.5" />
+      <point x="2724.4693866112384" y="3571.0" />
+      <point x="4973.223538939909" y="3571.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="utilities.QueryManager" target="exceptions.IncorrectInputScriptException">
+      <point x="-128.0" y="-138.0" />
+      <point x="4858.710877433234" y="1119.0" />
+      <point x="3036.3374255952376" y="1119.0" />
+      <point x="3036.3374255952376" y="688.0" />
+      <point x="3046.5249255952376" y="688.0" />
+      <point x="15.6875" y="14.5" />
+    </edge>
+    <edge source="utilities.QueryEnumsChecker" target="exceptions.EmptyStringException">
+      <point x="-64.0" y="-82.5" />
+      <point x="5015.494141002639" y="638.0" />
+      <point x="3834.670758928571" y="638.0" />
+      <point x="69.33333333333348" y="49.5" />
+    </edge>
+    <edge source="commands.HistoryCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-73.14285714285734" y="-49.5" />
+      <point x="1918.273809523809" y="2802.0" />
+      <point x="1312.4793378705044" y="2802.0" />
+      <point x="-28.21875" y="38.0" />
+    </edge>
+    <edge source="utilities.CollectionManager" target="utilities.QueryManager">
+      <point x="92.09375" y="-313.5" />
+      <point x="4122.643169099901" y="1645.0" />
+      <point x="4877.9108774332335" y="1645.0" />
+      <point x="-108.80000000000018" y="138.0" />
+    </edge>
+    <edge source="commands.SaveCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="4701.223538939909" y="2452.0" />
+      <point x="2629.7637648809523" y="2452.0" />
+      <point x="96.609375" y="49.0" />
+    </edge>
+    <edge source="commands.ShowCommand" target="utilities.CollectionManager">
+      <point x="72.0" y="-49.5" />
+      <point x="1508.416666666666" y="3212.0" />
+      <point x="3925.2994190999007" y="3212.0" />
+      <point x="-105.25" y="313.5" />
+    </edge>
+    <edge source="utilities.QueryEnumsChecker" target="datas.Semester">
+      <point x="128.0" y="-82.5" />
+      <point x="5207.494141002639" y="678.0" />
+      <point x="5304.533220312459" y="678.0" />
+      <point x="-72.39999999999964" y="82.0" />
+    </edge>
+    <edge source="commands.RemoveCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-74.57142857142844" y="-49.5" />
+      <point x="1638.3452380952378" y="2832.0" />
+      <point x="1296.3543378705044" y="2832.0" />
+      <point x="-44.34375" y="38.0" />
+    </edge>
+    <edge source="utilities.CollectionManager" target="utilities.FileManager">
+      <point x="171.03125" y="-313.5" />
+      <point x="4201.580669099901" y="1675.0" />
+      <point x="6259.071884264062" y="1675.0" />
+      <point x="-121.875" y="72.0" />
+    </edge>
+    <edge source="commands.InfoCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-108.0" y="-49.5" />
+      <point x="3632.2235389399098" y="2632.0" />
+      <point x="1393.1043378705044" y="2632.0" />
+      <point x="52.40625" y="38.0" />
+    </edge>
+    <edge source="commands.FilterLessThanTransferredStudentsCommand" target="utilities.CollectionManager">
+      <point x="56.71428571428487" y="-49.5" />
+      <point x="4141.437824654195" y="3362.0" />
+      <point x="4123.417066158724" y="3362.0" />
+      <point x="92.86764705882342" y="313.5" />
+    </edge>
+    <edge source="commands.FilterGreaterThanFormOfEducationCommand" target="utilities.CommandManager">
+      <point x="-172.28571428571422" y="-49.5" />
+      <point x="917.1309523809518" y="2882.0" />
+      <point x="673.587596799076" y="2882.0" />
+      <point x="673.587596799076" y="1645.0" />
+      <point x="1992.3485863095236" y="1645.0" />
+      <point x="-58.5" y="93.5" />
+    </edge>
+    <edge source="utilities.Console" target="commands.ClearCommand">
+      <point x="-2.958333333333485" y="-49.5" />
+      <point x="2688.9693866112384" y="3511.0" />
+      <point x="3159.2235389399098" y="3511.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.AbstractCommand" target="commands.ICommand">
+      <point x="0.0" y="-49.0" />
+      <point x="2533.1543898809523" y="1219.0" />
+      <point x="2301.973586309524" y="1219.0" />
+      <point x="20.375" y="49.0" />
+    </edge>
+    <edge source="commands.ShowCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-72.0" y="-49.5" />
+      <point x="1364.416666666666" y="2862.0" />
+      <point x="1280.2293378705044" y="2862.0" />
+      <point x="-60.46875" y="38.0" />
+    </edge>
+    <edge source="utilities.FileManager" target="datas.Person">
+      <point x="0.0" y="-72.0" />
+      <point x="6380.946884264062" y="1199.0" />
+      <point x="6427.310520627698" y="1199.0" />
+      <point x="6427.310520627698" y="538.0" />
+      <point x="5904.749886979125" y="538.0" />
+      <point x="110.41666666666697" y="104.5" />
+    </edge>
+    <edge source="commands.ExecuteScriptCommand" target="utilities.CommandManager">
+      <point x="41.28571428571428" y="-49.5" />
+      <point x="3491.009253225624" y="3122.0" />
+      <point x="3455.600539812163" y="3122.0" />
+      <point x="3455.600539812163" y="1665.0" />
+      <point x="2083.348586309524" y="1665.0" />
+      <point x="32.5" y="93.5" />
+    </edge>
+    <edge source="commands.UpdateCommand" target="utilities.CommandManager">
+      <point x="-109.71428571428623" y="-49.5" />
+      <point x="306.7023809523798" y="1625.0" />
+      <point x="1966.3485863095236" y="1625.0" />
+      <point x="-84.5" y="93.5" />
+    </edge>
+    <edge source="utilities.FileManager" target="datas.Location">
+      <point x="147.72727272727298" y="-72.0" />
+      <point x="6528.674156991335" y="1199.0" />
+      <point x="6482.310520627698" y="1199.0" />
+      <point x="6482.310520627698" y="229.0" />
+      <point x="6126.395720312458" y="229.0" />
+      <point x="92.5" y="104.5" />
+    </edge>
+    <edge source="utilities.QueryManager" target="datas.Coordinates">
+      <point x="96.0" y="-138.0" />
+      <point x="5082.710877433234" y="1199.0" />
+      <point x="6029.499886979125" y="1199.0" />
+      <point x="6029.499886979125" y="688.0" />
+      <point x="6047.166553645791" y="688.0" />
+      <point x="14.33333333333303" y="82.5" />
+    </edge>
+    <edge source="commands.ClearCommand" target="commands.AbstractCommand">
+      <point x="-36.0" y="-49.5" />
+      <point x="3123.2235389399098" y="2692.0" />
+      <point x="2551.0450148809523" y="2692.0" />
+      <point x="17.890625" y="49.0" />
+    </edge>
+    <edge source="utilities.QueryEnumsChecker" target="datas.Country">
+      <point x="0.0" y="-82.5" />
+      <point x="5079.494141002639" y="628.0" />
+      <point x="4961.416553645792" y="628.0" />
+      <point x="4961.416553645792" y="269.0" />
+      <point x="5307.624886979125" y="269.0" />
+      <point x="-35.19999999999982" y="93.0" />
+    </edge>
+    <edge source="datas.StudyGroup" target="datas.Coordinates">
+      <point x="179.375" y="-170.5" />
+      <point x="5739.9733076693055" y="678.0" />
+      <point x="5961.166553645791" y="678.0" />
+      <point x="-71.66666666666697" y="82.5" />
+    </edge>
+    <edge source="commands.FilterLessThanTransferredStudentsCommand" target="utilities.CommandManager">
+      <point x="170.14285714285643" y="-49.5" />
+      <point x="4254.866396082766" y="3342.0" />
+      <point x="4696.831732217221" y="3342.0" />
+      <point x="4696.831732217221" y="1585.0" />
+      <point x="2135.348586309524" y="1585.0" />
+      <point x="84.5" y="93.5" />
+    </edge>
+    <edge source="commands.InfoCommand" target="utilities.CollectionManager">
+      <point x="72.0" y="-49.5" />
+      <point x="3812.2235389399098" y="3352.0" />
+      <point x="4098.652360276371" y="3352.0" />
+      <point x="68.10294117647027" y="313.5" />
+    </edge>
+    <edge source="utilities.QueryChecker" target="exceptions.IncorrectInputScriptException">
+      <point x="-104.57142857142844" y="-127.0" />
+      <point x="3380.2124255952376" y="688.0" />
+      <point x="3077.8999255952376" y="688.0" />
+      <point x="47.0625" y="14.5" />
+    </edge>
+    <edge source="datas.Person" target="datas.Country">
+      <point x="-99.375" y="-104.5" />
+      <point x="5694.958220312458" y="269.0" />
+      <point x="5342.824886979125" y="269.0" />
+      <point x="0.0" y="93.0" />
+    </edge>
+    <edge source="utilities.FileManager" target="datas.Country">
+      <point x="88.63636363636397" y="-72.0" />
+      <point x="6469.583247900426" y="1219.0" />
+      <point x="6460.310520627698" y="1219.0" />
+      <point x="6460.310520627698" y="249.0" />
+      <point x="5413.224886979125" y="249.0" />
+      <point x="70.39999999999964" y="93.0" />
+    </edge>
+    <edge source="datas.Person" target="datas.Location">
+      <point x="33.125" y="-104.5" />
+      <point x="5827.458220312458" y="259.0" />
+      <point x="5941.395720312458" y="259.0" />
+      <point x="-92.5" y="104.5" />
+    </edge>
+    <edge source="commands.FilterGreaterThanFormOfEducationCommand" target="commands.AbstractCommand">
+      <point x="57.428571428571445" y="-49.5" />
+      <point x="1146.8452380952376" y="3042.0" />
+      <point x="2472.3262648809523" y="3042.0" />
+      <point x="-60.828125" y="49.0" />
+    </edge>
+    <edge source="utilities.Console" target="utilities.CommandManager">
+      <point x="-62.125" y="-49.5" />
+      <point x="2629.8027199445723" y="3621.0" />
+      <point x="5.91666666666606" y="3621.0" />
+      <point x="5.91666666666606" y="1605.0" />
+      <point x="1940.3485863095236" y="1605.0" />
+      <point x="-110.5" y="93.5" />
+    </edge>
+    <edge source="utilities.QueryManager" target="utilities.CollectionManager">
+      <point x="0.0" y="138.0" />
+      <point x="4986.710877433234" y="1665.0" />
+      <point x="4175.268169099901" y="1665.0" />
+      <point x="144.71875" y="-313.5" />
+    </edge>
+    <edge source="commands.InfoCommand" target="utilities.CommandManager">
+      <point x="36.0" y="-49.5" />
+      <point x="3776.2235389399098" y="2592.0" />
+      <point x="3603.7076826693055" y="2592.0" />
+      <point x="3603.7076826693055" y="1655.0" />
+      <point x="2096.348586309524" y="1655.0" />
+      <point x="45.5" y="93.5" />
+    </edge>
+    <edge source="commands.UpdateCommand" target="commands.AbstractCommand">
+      <point x="36.57142857142844" y="-49.5" />
+      <point x="452.9880952380945" y="3002.0" />
+      <point x="2443.7012648809523" y="3002.0" />
+      <point x="-89.453125" y="49.0" />
+    </edge>
+    <edge source="utilities.QueryEnumsChecker" target="exceptions.IncorrectInputScriptException">
+      <point x="-128.0" y="-82.5" />
+      <point x="4951.494141002639" y="648.0" />
+      <point x="3140.6499255952376" y="648.0" />
+      <point x="109.8125" y="14.5" />
+    </edge>
+    <edge source="run.App" target="utilities.Console">
+      <point x="-37.25" y="-26.5" />
+      <point x="2654.6777199445723" y="3775.0" />
+      <point x="2656.4277199445723" y="3775.0" />
+      <point x="-35.5" y="49.5" />
+    </edge>
+    <edge source="commands.FilterContainsNameCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-138.42857142857156" y="-49.5" />
+      <point x="2713.294967511338" y="2752.0" />
+      <point x="1344.7293378705044" y="2752.0" />
+      <point x="4.03125" y="38.0" />
+    </edge>
+    <edge source="utilities.Console" target="commands.FilterLessThanTransferredStudentsCommand">
+      <point x="14.791666666666515" y="-49.5" />
+      <point x="2706.7193866112384" y="3541.0" />
+      <point x="4084.7235389399098" y="3541.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.HelpCommand" target="utilities.CollectionManager">
+      <point x="36.00000000000023" y="-49.5" />
+      <point x="4465.22353893991" y="2502.0" />
+      <point x="4148.181772041077" y="2502.0" />
+      <point x="117.63235294117658" y="313.5" />
+    </edge>
+    <edge source="commands.HistoryCommand" target="utilities.CommandManager">
+      <point x="-109.71428571428578" y="-49.5" />
+      <point x="1881.7023809523805" y="2812.0" />
+      <point x="1172.3733110847897" y="2812.0" />
+      <point x="1172.3733110847897" y="1675.0" />
+      <point x="2031.3485863095236" y="1675.0" />
+      <point x="-19.5" y="93.5" />
+    </edge>
+    <edge source="commands.FilterContainsNameCommand" target="utilities.CollectionManager">
+      <point x="92.28571428571468" y="-49.5" />
+      <point x="2944.0092532256244" y="3292.0" />
+      <point x="4024.3582426293124" y="3292.0" />
+      <point x="-6.191176470588289" y="313.5" />
+    </edge>
+    <edge source="commands.ExecuteScriptCommand" target="utilities.CollectionManager">
+      <point x="82.57142857142856" y="-49.5" />
+      <point x="3532.294967511338" y="3332.0" />
+      <point x="4073.8876543940178" y="3332.0" />
+      <point x="43.33823529411711" y="313.5" />
+    </edge>
+    <edge source="utilities.QueryChecker" target="exceptions.EmptyStringException">
+      <point x="69.71428571428578" y="-127.0" />
+      <point x="3554.4981398809523" y="678.0" />
+      <point x="3696.004092261904" y="678.0" />
+      <point x="-69.33333333333348" y="49.5" />
+    </edge>
+    <edge source="utilities.QueryManager" target="datas.Person">
+      <point x="64.0" y="-138.0" />
+      <point x="5050.710877433234" y="1179.0" />
+      <point x="5869.0983076693055" y="1179.0" />
+      <point x="5869.0983076693055" y="658.0" />
+      <point x="5816.416553645791" y="658.0" />
+      <point x="22.08333333333303" y="104.5" />
+    </edge>
+    <edge source="commands.UpdateCommand" target="utilities.CollectionManager">
+      <point x="73.14285714285688" y="-49.5" />
+      <point x="489.55952380952294" y="3152.0" />
+      <point x="3851.005301452841" y="3152.0" />
+      <point x="-179.544117647059" y="313.5" />
+    </edge>
+    <edge source="utilities.Console" target="commands.HistoryCommand">
+      <point x="-20.708333333333485" y="-49.5" />
+      <point x="2671.2193866112384" y="3551.0" />
+      <point x="1991.4166666666663" y="3551.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="utilities.Console" target="commands.ShowCommand">
+      <point x="-32.541666666666515" y="-49.5" />
+      <point x="2659.3860532779054" y="3571.0" />
+      <point x="1436.416666666666" y="3571.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.RemoveLowerCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-83.71428571428578" y="-49.5" />
+      <point x="2202.2023809523807" y="2772.0" />
+      <point x="1328.6043378705044" y="2772.0" />
+      <point x="-12.09375" y="38.0" />
+    </edge>
+    <edge source="commands.InsertCommand" target="exceptions.IncorrectInputScriptException">
+      <point x="-84.0" y="-49.5" />
+      <point x="58.41666666666606" y="688.0" />
+      <point x="2952.3999255952376" y="688.0" />
+      <point x="-78.4375" y="14.5" />
+    </edge>
+    <edge source="utilities.QueryManager" target="datas.FormOfEducation">
+      <point x="-48.0" y="-138.0" />
+      <point x="4938.710877433234" y="1069.0" />
+      <point x="4908.994141002639" y="1069.0" />
+      <point x="4908.994141002639" y="688.0" />
+      <point x="5042.458220312458" y="688.0" />
+      <point x="-56.75" y="71.0" />
+    </edge>
+    <edge source="utilities.CollectionManager" target="utilities.CommandManager">
+      <point x="-197.34375" y="-313.5" />
+      <point x="3833.2056690999007" y="1645.0" />
+      <point x="2109.348586309524" y="1645.0" />
+      <point x="58.5" y="93.5" />
+    </edge>
+    <edge source="utilities.Console" target="commands.ExecuteScriptCommand">
+      <point x="2.958333333333485" y="-49.5" />
+      <point x="2694.8860532779054" y="3521.0" />
+      <point x="3449.7235389399098" y="3521.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.ExecuteScriptCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="3449.7235389399098" y="2642.0" />
+      <point x="2572.5137648809523" y="2642.0" />
+      <point x="39.359375" y="49.0" />
+    </edge>
+    <edge source="commands.ReplaceIfGreaterCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-86.85714285714312" y="-49.5" />
+      <point x="629.559523809523" y="2932.0" />
+      <point x="1247.9793378705044" y="2932.0" />
+      <point x="-92.71875" y="38.0" />
+    </edge>
+    <edge source="utilities.Console" target="commands.FilterGreaterThanFormOfEducationCommand">
+      <point x="-38.458333333333485" y="-49.5" />
+      <point x="2653.4693866112384" y="3581.0" />
+      <point x="1089.416666666666" y="3581.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.FilterLessThanTransferredStudentsCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-170.14285714285734" y="-49.5" />
+      <point x="3914.5806817970524" y="2582.0" />
+      <point x="1409.2293378705044" y="2582.0" />
+      <point x="68.53125" y="38.0" />
+    </edge>
+    <edge source="commands.RemoveCommand" target="utilities.CollectionManager">
+      <point x="74.57142857142844" y="-49.5" />
+      <point x="1787.4880952380947" y="3232.0" />
+      <point x="3950.064124982253" y="3232.0" />
+      <point x="-80.4852941176473" y="313.5" />
+    </edge>
+    <edge source="commands.FilterGreaterThanFormOfEducationCommand" target="exceptions.IncorrectCommandInputException">
+      <point x="-114.85714285714289" y="-49.5" />
+      <point x="974.559523809523" y="2952.0" />
+      <point x="1264.1043378705044" y="2952.0" />
+      <point x="-76.59375" y="38.0" />
+    </edge>
+    <edge source="utilities.Console" target="commands.InsertCommand">
+      <point x="-56.208333333333485" y="-49.5" />
+      <point x="2635.7193866112384" y="3611.0" />
+      <point x="142.41666666666606" y="3611.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="utilities.FileManager" target="datas.FormOfEducation">
+      <point x="-147.72727272727298" y="-72.0" />
+      <point x="6233.219611536789" y="1109.0" />
+      <point x="5249.994141002639" y="1109.0" />
+      <point x="5249.994141002639" y="608.0" />
+      <point x="5118.124886979125" y="608.0" />
+      <point x="18.91666666666697" y="71.0" />
+    </edge>
+    <edge source="utilities.FileManager" target="datas.Coordinates">
+      <point x="29.54545454545496" y="-72.0" />
+      <point x="6410.492338809517" y="1209.0" />
+      <point x="6438.310520627698" y="1209.0" />
+      <point x="6438.310520627698" y="528.0" />
+      <point x="6075.833220312458" y="528.0" />
+      <point x="43.0" y="82.5" />
+    </edge>
+    <edge source="commands.RemoveLowerCommand" target="utilities.CommandManager">
+      <point x="-125.57142857142844" y="-49.5" />
+      <point x="2160.3452380952376" y="2782.0" />
+      <point x="1201.1980878705044" y="2782.0" />
+      <point x="1201.1980878705044" y="1685.0" />
+      <point x="2044.3485863095236" y="1685.0" />
+      <point x="-6.5" y="93.5" />
+    </edge>
+    <edge source="datas.StudyGroup" target="datas.Semester">
+      <point x="-107.625" y="-170.5" />
+      <point x="5452.9733076693055" y="578.0" />
+      <point x="5376.933220312459" y="578.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="datas.StudyGroup" target="datas.Person">
+      <point x="35.875" y="-170.5" />
+      <point x="5596.4733076693055" y="678.0" />
+      <point x="5683.916553645791" y="678.0" />
+      <point x="-110.41666666666697" y="104.5" />
+    </edge>
+    <edge source="commands.InsertCommand" target="utilities.CollectionManager">
+      <point x="84.0" y="-49.5" />
+      <point x="226.41666666666606" y="3132.0" />
+      <point x="3826.240595570489" y="3132.0" />
+      <point x="-204.3088235294117" y="313.5" />
+    </edge>
+    <edge source="utilities.CommandManager" target="commands.ICommand">
+      <point x="-65.0" y="-93.5" />
+      <point x="1985.8485863095236" y="1209.0" />
+      <point x="2220.473586309524" y="1209.0" />
+      <point x="-61.125" y="49.0" />
+    </edge>
+    <edge source="utilities.Console" target="commands.RemoveLowerCommand">
+      <point x="-14.791666666666515" y="-49.5" />
+      <point x="2677.1360532779054" y="3541.0" />
+      <point x="2285.916666666666" y="3541.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="commands.ExitCommand" target="utilities.CollectionManager">
+      <point x="36.0" y="-49.5" />
+      <point x="5009.223538939909" y="2382.0" />
+      <point x="4197.711183805783" y="2382.0" />
+      <point x="167.16176470588198" y="313.5" />
+    </edge>
+    <edge source="commands.RemoveLowerCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="2285.916666666666" y="3112.0" />
+      <point x="2522.4200148809523" y="3112.0" />
+      <point x="-10.734375" y="49.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5022974607013301" x="2630.947251577996" y="3271.4079062218216" />
+  <SelectedNodes>
+    <node>datas.Semester</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,6 @@
+show
+help
+info
+123
+help 23
+execute_script test.txt
