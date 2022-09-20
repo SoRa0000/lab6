@@ -13,9 +13,10 @@ import java.io.IOException;
 public class AppServer {
     public static final int PORT = 4004;
     public static final int CONNECTION_TIMEOUT = 60 * 1000;
-    public static final Logger logger
-            = LoggerFactory.getLogger(AppServer.class);
+    public final Logger LOG  = LoggerFactory.getLogger(AppServer.class);
+
     public static void main(String[] args) throws IOException, CannotReadFileException {
+
         if(args.length == 1){
             final String PATH_FILE = args[0];
             FileManager fileManager = new FileManager(PATH_FILE);
@@ -39,9 +40,12 @@ public class AppServer {
             RequestHandler requestHandler = new RequestHandler(commandManager);
             Server server = new Server(PORT,CONNECTION_TIMEOUT,requestHandler,collectionManager);
             server.run();
+
         }
         else if(args.length == 0) System.out.println("Должно вводыть имя файла!");
 
         else System.out.println("Имя файла неправильно!");
+
+
     }
 }

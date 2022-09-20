@@ -4,6 +4,7 @@ import common.exceptions.IncorrectCommandInputException;
 import common.interaction.StudyGroupRaw;
 import server.utilities.CollectionManager;
 import server.utilities.CommandManager;
+import server.utilities.ResponseOutputer;
 
 /**
  * Concrete command, Remove if lower
@@ -23,8 +24,7 @@ public class RemoveLowerCommand extends AbstractCommand {
             CommandManager.addToHistory(getName());
             collectionManager.removeLower(studyGroupRaw);
         } catch (IncorrectCommandInputException err) {
-            System.out.println(err.getMessage());
-            System.out.println("Использование: " + getDescription());
+            ResponseOutputer.append("Использование: " + getDescription());
         }
     }
 }

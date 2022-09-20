@@ -7,6 +7,8 @@ import com.opencsv.CSVWriter;
 
 import common.exceptions.CannotReadFileException;
 import common.exceptions.CannotWriteException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import server.AppServer;
 import server.customCollection.CustomTreeMap;
 import common.datas.*;
@@ -17,7 +19,8 @@ import common.datas.*;
 public class FileManager {
     private final String path;
     private long lastId = 1L;
-
+    public final Logger LOG
+            = LoggerFactory.getLogger(FileManager.class);
     /**
      * Constructor
      * @param path Path of CSV file
@@ -30,10 +33,10 @@ public class FileManager {
             if(!file.exists()) throw new FileNotFoundException();
             if(!file.canRead()) throw new CannotReadFileException();
         }catch (FileNotFoundException err){
-            AppServer.logger.info("Файл не найден");
+            LOG.error("Файл не найден");
             System.exit(0);
         }catch (CannotReadFileException err){
-            AppServer.logger.info("Отказано в доступе для чтения из файла!");
+            LOG.error("Отказано в доступе для чтения из файла!");
             System.exit(0);
         }
 
@@ -54,32 +57,53 @@ public class FileManager {
                 row++;
                 try{
                     if(data.length == 16) throw new IndexOutOfBoundsException();
-                    if (Long.parseLong(data[1]) > lastId) {
-                        lastId = Long.parseLong(data[1]);
+
+                    long id = Long.parseLong(data[0]);
+                    String key = data[1];
+                    String name = data[2];
+                    int coordinate_x = Integer.parseInt(data[3]);
+                    long coordinate_y = Long.parseLong(data[4]);
+                    LocalDate localDate = LocalDate.parse(data[5]);
+                    Long students_count = Long.parseLong(data[6]);
+                    long transferred_students = Long.parseLong(data[7]);
+                    FormOfEducation formOfEducation = FormOfEducation.valueOf(data[8]);
+                    Semester semester = Semester.valueOf(data[9]);
+                    String admin_name = data[10];
+                    String passport_id = data[11];
+                    Country country = Country.valueOf(data[12]);
+                    Float location_x = Float.parseFloat(data[13]);
+                    Long location_y = Long.parseLong(data[14]);
+                    int location_z = Integer.parseInt(data[15]);
+                    String location_name = data[16];
+
+                    if (id > lastId) {
+                        lastId = id;
                     }
-                    Coordinates coordinates = new Coordinates(Integer.parseInt(data[3]), Long.parseLong(data[4]));
-                    Location location = new Location(Float.parseFloat(data[13]), Long.parseLong(data[14]), Integer.parseInt(data[15]), data[16]);
-                    Person groupAdmin = new Person(data[10], data[11], Country.valueOf(data[12]), location);
+
+                    Coordinates coordinates = new Coordinates(coordinate_x, coordinate_y);
+                    Location location = new Location(location_x, location_y, location_z, location_name);
+                    Person groupAdmin = new Person(admin_name, passport_id, country, location);
                     StudyGroup studyGroup = new StudyGroup(
-                            Long.parseLong(data[1]),
-                            data[2],
+                            id,
+                            name,
                             coordinates,
-                            LocalDate.parse(data[5]),
-                            Long.parseLong(data[6]),
-                            Long.parseLong(data[7]),
-                            FormOfEducation.valueOf(data[8]),
-                            Semester.valueOf(data[9]),
+                            localDate,
+                            students_count,
+                            transferred_students,
+                            formOfEducation,
+                            semester,
                             groupAdmin
                     );
-                    studyGroupCollection.put(data[0], studyGroup);
+                    studyGroupCollection.put(key, studyGroup);
+
                 }catch(IndexOutOfBoundsException | IllegalArgumentException err){
-                    AppServer.logger.info("Ошибка в " + row + " строке!");
+                    LOG.error("Ошибка в " + row + " строке!");
                 }
             }
-            AppServer.logger.info("Данные добавлены в коллекцию!");
+            LOG.info("Данные добавлены в коллекцию!");
             reader.close();
         } catch (IOException err){
-            AppServer.logger.info("Ошибка во время чтения из файла");
+            LOG.error("Ошибка во время чтения из файла");
 
         }
 
@@ -98,16 +122,17 @@ public class FileManager {
             CSVWriter writer = new CSVWriter(new OutputStreamWriter(outputStream), ',', '\0');
             studyGroupCollection.forEach((key, value) -> {
                 String[] data = new String[17];
-                data[0] = key;
+                data[0] = value.getId().toString();
+                data[1] = key;
                 String[] values = value.toString().split(",");
-                System.arraycopy(values, 0, data, 1, values.length);
+                System.arraycopy(values, 1, data, 2, values.length-1);
                 writer.writeNext(data);
 
             });
             writer.close();
-            AppServer.logger.info("Успешно сохранено в файл!");
+            LOG.info("Успешно сохранено в файл!");
         }catch (IOException | CannotWriteException err){
-            AppServer.logger.info("Отказано в доступе для записи в файл!");
+            LOG.error("Отказано в доступе для записи в файл!");
         }
     }
     public Long getLastId(){

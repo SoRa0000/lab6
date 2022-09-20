@@ -3,6 +3,7 @@ package server.commands;
 import common.exceptions.IncorrectCommandInputException;
 import server.utilities.CollectionManager;
 import server.utilities.CommandManager;
+import server.utilities.ResponseOutputer;
 
 import java.io.IOException;
 
@@ -24,9 +25,7 @@ public class FilterGreaterThanFormOfEducationCommand extends AbstractCommand {
             CommandManager.addToHistory(getName());
             collectionManager.filter_greater_than_form_of_education(arg[1]);
         } catch (IncorrectCommandInputException err) {
-            System.out.println(err.getMessage());
-            ;
-            System.out.println("Использование: " + getDescription());
+            ResponseOutputer.append("Использование: " + getDescription());
         }
     }
 }

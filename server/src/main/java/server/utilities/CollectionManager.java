@@ -1,6 +1,8 @@
 package server.utilities;
 
 import common.interaction.StudyGroupRaw;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import server.AppServer;
 import server.commands.ICommand;
 import common.datas.FormOfEducation;
@@ -8,7 +10,7 @@ import common.datas.StudyGroup;
 import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.asciitable.CWC_LongestLine;
 import common.exceptions.IncorrectInputScriptException;
-import common.exceptions.ScriptRecursionException;
+
 import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
@@ -27,7 +29,8 @@ public class CollectionManager {
     //private final QueryManager queryManager;
     private final List<String> scriptStack = new ArrayList<>();
     private LocalDate initData;
-
+    public final Logger LOG
+            = LoggerFactory.getLogger(CollectionManager.class);
     /**
      * Constructor
      * @param commandManager Command manager
@@ -75,8 +78,12 @@ public class CollectionManager {
                                 studyGroupRaw.getGroupAdmin())
                         );
                 ResponseOutputer.append("Успешно добавлено Study Group!");
+                LOG.info("Успешно добавлено Study Group!");
             }
-            else ResponseOutputer.append("Ключ не может перекрываться");
+            else {
+                ResponseOutputer.append("Ключ не может перекрываться");
+                LOG.error("Ключ не может перекрываться");
+            }
         }
         catch(IncorrectInputScriptException err){
             throw new IncorrectInputScriptException();
@@ -107,6 +114,7 @@ public class CollectionManager {
     public void clear(){
         studyGroupCollection.clear();
         ResponseOutputer.append("Успешно очистили коллекцию!");
+        LOG.info("Успешно очистили коллекцию!");
     }
 
     /**
@@ -145,12 +153,18 @@ public class CollectionManager {
                     updated = true;
                 }
             }
-            if(updated) ResponseOutputer.append("Успешно обновлено!");
-            else ResponseOutputer.append("Не удалось обновить. Нет такого id!");
+            if(updated) {
+                ResponseOutputer.append("Успешно обновлено!");
+                LOG.info("Успешно обновлено!");
+            }
+            else {
+                LOG.error("Не удалось обновить. Нет такого id!");
+            }
 
         }
         catch(NumberFormatException err){
             ResponseOutputer.append("id должно быть цифром!");
+            LOG.error("id должно быть цифром!");
         }
 
     }
@@ -160,9 +174,15 @@ public class CollectionManager {
      * @param arg key of TreeMap
      */
     public void remove(String arg){
-        if(studyGroupCollection.remove(arg) == null) ResponseOutputer.append("Не удалось удалить. Нет такого ключа.");
+        if(studyGroupCollection.remove(arg) == null) {
+            ResponseOutputer.append("Не удалось удалить. Нет такого ключа.");
+            LOG.error("Не удалось удалить. Нет такого ключа.");
+        }
 
-        else ResponseOutputer.append("Успешно удалено!");
+        else {
+            ResponseOutputer.append("Успешно удалено!");
+            LOG.info("Успешно удалено!");
+        }
 
     }
 
@@ -186,7 +206,7 @@ public class CollectionManager {
      */
     public void executeScript(String arg){
         ResponseOutputer.append("");
-        AppServer.logger.info("Чтение команды из скрипта...");
+        LOG.info("Чтение команды из скрипта...");
     }
 
     /**
@@ -210,11 +230,14 @@ public class CollectionManager {
                     .filter(studyGroup -> studyGroup.getValue().getName().toLowerCase().contains(arg.toLowerCase()))
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
             if(!filteredByName.isEmpty()) printCollection(filteredByName);
-            else ResponseOutputer.append("Нет таких элементов!");
+            else {
+                ResponseOutputer.append("Нет таких элементов!");
+                LOG.error("Нет таких элементов!");
+            }
         }catch(IllegalArgumentException err){
             ResponseOutputer.append("Нет таких элементов!");
+            LOG.error("Нет таких элементов!");
         }
-
     }
 
     /**
@@ -229,13 +252,14 @@ public class CollectionManager {
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
             if(!filteredByTransferredStudents.isEmpty()) printCollection(filteredByTransferredStudents);
 
-            else ResponseOutputer.append("Нет таких элементов!");
-
+            else {
+                ResponseOutputer.append("Нет таких элементов!");
+                LOG.error("Нет таких элементов!");
+            }
         }catch(IllegalArgumentException err){
             ResponseOutputer.append("Должно быть цифром");
+            LOG.error("Должно быть цифром");
         }
-
-
     }
 
     /**
@@ -254,10 +278,14 @@ public class CollectionManager {
 
             if(!filteredByFormOfEducation.isEmpty()) printCollection(filteredByFormOfEducation);
 
-            else ResponseOutputer.append("Нет таких элементов!");
+            else {
+                ResponseOutputer.append("Нет таких элементов!");
+                LOG.error("Нет таких элементов!");
+            }
 
         }catch(IllegalArgumentException err){
             ResponseOutputer.append("Нет таких элементов!");
+            LOG.error("Нет таких элементов!");
         }
     }
 
@@ -278,8 +306,14 @@ public class CollectionManager {
                             studyGroupRaw.getGroupAdmin()
                 );
         if(studyGroupCollection.entrySet().removeIf(studyGroup -> studyGroup.getValue().compareTo(removeStudyGroup) < 0))
+        {
             ResponseOutputer.append("Успешно удалили из коллекции");
-        else ResponseOutputer.append("Ничего не удалили из коллекции");
+            LOG.info("Успешно удалили из коллекции");
+        }
+        else {
+            ResponseOutputer.append("Ничего не удалили из коллекции");
+            LOG.error("Ничего не удалили из коллекции");
+        }
     }
 
     /**
@@ -303,10 +337,15 @@ public class CollectionManager {
             if(studyGroupCollection.get(arg).getStudentsCount().compareTo(replaceStudyGroup.getStudentsCount()) < 0){
                 studyGroupCollection.replace(arg,replaceStudyGroup);
                 ResponseOutputer.append("Успешно заменили элементы");
+                LOG.info("Успешно заменили элементы");
             }
             ResponseOutputer.append("Не заменили элементы");
+            LOG.info("Не заменили элементы");
         }
-        else ResponseOutputer.append("Не удалось удалить. Нет такого ключа.");
+        else {
+            ResponseOutputer.append("Не удалось удалить. Нет такого ключа.");
+            LOG.error("Не удалось удалить. Нет такого ключа.");
+        }
 
     }
 
@@ -319,12 +358,12 @@ public class CollectionManager {
         Map<String, StudyGroup> sortedMap = sortValues(collection);
         AsciiTable at = new AsciiTable();
         at.addRule();
-        at.addRow("Key","id","name","Coord-X", "Coord-Y", "creatDate","St", "T-St","formEdu","SEM","A-Name","passId","CNTR","LOC-X","LOC-Y","LOC-Z","LOC-Name");
+        at.addRow("id","Key","name","Coord-X", "Coord-Y", "creatDate","St", "T-St","formEdu","SEM","A-Name","passId","CNTR","LOC-X","LOC-Y","LOC-Z","LOC-Name");
         at.addRule();
         sortedMap.forEach((key,entry)-> {
             at.addRow(
-                    String.valueOf(key),
                     String.valueOf(entry.getId()),
+                    String.valueOf(key),
                     String.valueOf(entry.getName()),
                     String.valueOf(entry.getCoordinates().getX()),
                     String.valueOf(entry.getCoordinates().getY()),

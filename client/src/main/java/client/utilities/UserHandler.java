@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class UserHandler {
-    private final int maxRewriteAttempts = 1;
+    private final int maxRewriteAttempts = 5;
     Scanner userScanner;
     private Stack<File> scriptStack = new Stack<>();
     private Stack<Scanner> scannerStack = new Stack<>();
@@ -27,7 +27,7 @@ public class UserHandler {
 
     public Request handle(ResponseCode serverResponseCode) throws FileNotFoundException {
         String userInput;
-        String userCommand[];
+        String[] userCommand;
         ProcessingCode processingCode;
         int rewriteAttempts = 0;
         try{
@@ -105,7 +105,7 @@ public class UserHandler {
                 throw new CommandUsageException();
             }
         }catch (CommandUsageException err){
-            System.out.println("wrronnng command");
+            System.out.println("Неверный комманд! help - вывести справку по доступным командам");
             return ProcessingCode.ERROR;
         }
     }

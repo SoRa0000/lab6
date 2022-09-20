@@ -3,6 +3,7 @@ package server.commands;
 import common.exceptions.IncorrectCommandInputException;
 import server.utilities.CollectionManager;
 import server.utilities.CommandManager;
+import server.utilities.ResponseOutputer;
 
 /**
  * Concrete command, Print all command with description
@@ -22,8 +23,7 @@ public class HelpCommand extends AbstractCommand {
             CommandManager.addToHistory(getName());
             collectionManager.help();
         } catch (IncorrectCommandInputException err) {
-            System.out.println(err.getMessage());
-            System.out.println("Использование: " + getDescription());
+            ResponseOutputer.append("Использование: " + getDescription());
         }
 
     }

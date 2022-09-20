@@ -48,7 +48,7 @@ public class AppClient {
         commands.put("replace_if_greater", new Commands("replace_if_greater",2,ProcessingCode.OBJECT));
         commands.put("execute_script",new Commands("execute_script",2,ProcessingCode.SCRIPT));
         commands.put("exit",new Commands("exit",1,ProcessingCode.OK));
-        commands.put("exit_server",new Commands("exit_server",1,ProcessingCode.OK));
+    //    commands.put("exit_server",new Commands("exit_server",1,ProcessingCode.OK));
         Scanner userScanner = new Scanner(System.in);
         QueryManager queryManager = new QueryManager(userScanner);
         UserHandler userHandler = new UserHandler(userScanner,commands,queryManager);

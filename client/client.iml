@@ -25,9 +25,5 @@
     <orderEntry type="library" name="Maven: org.antlr:antlr4:4.5.1" level="project" />
     <orderEntry type="library" name="Maven: de.vandermeer:char-translation:0.0.2" level="project" />
     <orderEntry type="module" module-name="common" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.6" level="project" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.6" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.7.36" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
   </component>
 </module>

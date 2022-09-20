@@ -11,18 +11,20 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.channels.SocketChannel;
 import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Client {
-    private String host;
-    private int port;
-    private int reconnectionTimeout;
-    private int reconnectionAttempts;
-    private int maxReconnectionAttempts;
-    private UserHandler userHandler;
+    private final String host;
+    private final int port;
+    private final int reconnectionTimeout;
+    private int reconnectionAttempts = 0;
+    private final int maxReconnectionAttempts;
+    private final UserHandler userHandler;
     private SocketChannel socketChannel;
     private ObjectOutputStream serverWriter;
     private ObjectInputStream serverReader;
-
+    private boolean connection;
     public Client(String host, int port, int reconnectionTimeout, int maxReconnectionAttempts, UserHandler userHandler){
         this.host = host;
         this.port = port;
@@ -32,6 +34,7 @@ public class Client {
     }
 
     public void run(){
+
         try{
             boolean processingStatus = true;
             while(processingStatus){
@@ -72,11 +75,14 @@ public class Client {
             serverWriter = new ObjectOutputStream(socketChannel.socket().getOutputStream());
             serverReader = new ObjectInputStream(socketChannel.socket().getInputStream());
             System.out.println("Разрешение на обмен данными получено");
+            reconnectionAttempts = 0;
+
         } catch (IOException err) {
             System.out.println("Произошла ошибка при соединении с сервером!");
             throw new ConnectionErrorException();
         } catch (IllegalArgumentException err){
             System.out.println("Адрес сервера введен некорректно!");
+
         }
     }
 
@@ -101,13 +107,30 @@ public class Client {
                 System.out.println("Произошла ошибка при чтении полученных данных!");
             } catch (IOException err){
                 System.out.println("Соединение с сервером разорвано!");
-                try{
-                    reconnectionAttempts++;
-                    connectToServer();
-                } catch (ConnectionErrorException | NotInDeclaredLimitsException e){
-                    if(requestToServer.getCommandName()[0].equals("exit"))
-                        System.out.println("Команда не будет зарегистрирована на сервере");
-                    else System.out.println("Попробуйте повторить команду позднее");
+                while(true){
+                    try{
+                        reconnectionAttempts++;
+                        connectToServer();
+                        break;
+                    } catch (ConnectionErrorException | NotInDeclaredLimitsException e){
+                        if(requestToServer.getCommandName()[0].equals("exit"))
+                            System.out.println("Команда не будет зарегистрирована на сервере");
+                        else {
+                            if(reconnectionAttempts >= maxReconnectionAttempts) {
+                                System.out.println("Превышено количество попыток подключения!");
+                                return false;
+                            }
+                            try{
+                                Thread.sleep(reconnectionTimeout);
+                            } catch (IllegalArgumentException timeoutException){
+                                System.out.println("Время ожидания подключения '" + reconnectionTimeout + "'находится за пределами возможных значений!");
+                            }
+                            catch (Exception timeoutException){
+                                System.out.println("Произошла ошибка при попытке ожидания подключения!");
+                                System.out.println("Повторное подключение будет произведено немедленно.");
+                            }
+                        }
+                    }
                 }
             }
         } while(!requestToServer.getCommandName()[0].equals("exit"));

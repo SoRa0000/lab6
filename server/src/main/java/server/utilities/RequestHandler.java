@@ -6,6 +6,7 @@ import common.interaction.ResponseCode;
 
 public class RequestHandler {
     CommandManager commandManager;
+    private boolean serverExitStatus;
     public RequestHandler(CommandManager commandManager){
         this.commandManager = commandManager;
     }

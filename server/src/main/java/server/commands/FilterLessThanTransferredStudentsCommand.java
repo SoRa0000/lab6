@@ -3,6 +3,7 @@ package server.commands;
 import common.exceptions.IncorrectCommandInputException;
 import server.utilities.CollectionManager;
 import server.utilities.CommandManager;
+import server.utilities.ResponseOutputer;
 
 import java.io.IOException;
 /**
@@ -23,8 +24,7 @@ public class FilterLessThanTransferredStudentsCommand extends AbstractCommand{
             collectionManager.filter_less_than_transferred_students(arg[1]);
         }
         catch (IncorrectCommandInputException err){
-            System.out.println(err.getMessage());;
-            System.out.println("Использование: "+ getDescription());
+            ResponseOutputer.append("Использование: " + getDescription());
         }
     }
 }

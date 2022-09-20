@@ -5,6 +5,7 @@ import common.exceptions.IncorrectInputScriptException;
 import common.interaction.StudyGroupRaw;
 import server.utilities.CollectionManager;
 import server.utilities.CommandManager;
+import server.utilities.ResponseOutputer;
 
 import java.io.IOException;
 
@@ -26,8 +27,7 @@ public class InsertCommand extends AbstractCommand {
             CommandManager.addToHistory(getName());
             collectionManager.insert(arg[1],studyGroupRaw);
         } catch (IncorrectCommandInputException err) {
-            System.out.println(err.getMessage());
-            System.out.println("Использование: " + getDescription());
+            ResponseOutputer.append("Использование: " + getDescription());
         } catch (IncorrectInputScriptException err) {
             throw new IncorrectInputScriptException();
         }
